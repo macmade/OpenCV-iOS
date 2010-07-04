@@ -1,0 +1,11 @@
+--- src/cv/cvcalibration.cpp.orig	2009-11-15 03:54:30.000000000 +0900
++++ src/cv/cvcalibration.cpp	2009-11-15 03:55:17.000000000 +0900
+@@ -2320,7 +2320,7 @@
+     CvMat wR  = cvMat(3, 3, CV_64F, _wr);
+     CvMat Z   = cvMat(3, 1, CV_64F, _z);
+     CvMat Ri  = cvMat(3, 3, CV_64F, _ri);
+-    double nx = imageSize.width, ny = imageSize.height;
++    int nx = imageSize.width, ny = imageSize.height;
+     int i, k;
+ 
+     if( _R->rows == 3 && _R->cols == 3 )

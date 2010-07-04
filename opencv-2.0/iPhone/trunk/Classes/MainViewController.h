@@ -1,0 +1,4 @@
+@interface MainViewController: UIViewController
+{}
+
+@end
