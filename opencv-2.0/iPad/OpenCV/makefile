@@ -85,8 +85,8 @@ SIMULATOR_CXX                   = $(SIMULATOR_BIN)/g++-$(VERSION_GCC)
 SIMULATOR_CPP                   = $(SIMULATOR_BIN)/cpp
 SIMULATOR_CXXCPP                = $(SIMULATOR_BIN)/cpp
 SIMULATOR_AR                    = $(SIMULATOR_BIN)/ar
-SIMULATOR_ARCH_FLAGS            = -arch i686 -mmacosx-version-min=10.6
-SIMULATOR_ARCH_HOST             = i686-apple-darwin9
+SIMULATOR_ARCH_FLAGS            = -arch i386 -mmacosx-version-min=10.6
+SIMULATOR_ARCH_HOST             = i386-apple-darwin9
 SIMULATOR_CFLAGS                = $(SIMULATOR_ARCH_FLAGS) -isysroot $(SIMULATOR_SDK)
 SIMULATOR_CXXFLAGS              = $(SIMULATOR_ARCH_FLAGS) -isysroot $(SIMULATOR_SDK) -I$(SIMULATOR_SDK)/usr/include/c++/4.2.1/$(SIMULATOR_ARCH_HOST)/
 
