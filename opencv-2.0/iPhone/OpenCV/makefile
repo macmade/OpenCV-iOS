@@ -65,7 +65,7 @@ ARGS_PATCH                      = -p0
 # Software versions
 #-------------------------------------------------------------------------------
 VERSION_OPENCV                  = 2.0.0
-VERSION_SDK                     = 3.2
+VERSION_SDK                     = 4.3
 VERSION_GCC                     = 4.2
 
 #-------------------------------------------------------------------------------
@@ -82,8 +82,10 @@ SIMULATOR_BIN                   = $(SIMULATOR_PLATFORM)/Developer/usr/bin
 SIMULATOR_SDK                   = $(SIMULATOR_PLATFORM)/Developer/SDKs/$(SIMULATOR_ARCH_SDKNAME)$(VERSION_SDK).sdk
 SIMULATOR_CC                    = $(SIMULATOR_BIN)/gcc-$(VERSION_GCC)
 SIMULATOR_CXX                   = $(SIMULATOR_BIN)/g++-$(VERSION_GCC)
+SIMULATOR_CPP                   = $(SIMULATOR_BIN)/cpp
+SIMULATOR_CXXCPP                = $(SIMULATOR_BIN)/cpp
 SIMULATOR_AR                    = $(SIMULATOR_BIN)/ar
-SIMULATOR_ARCH_FLAGS            = -arch i686 -mmacosx-version-min=10.5
+SIMULATOR_ARCH_FLAGS            = -arch i686 -mmacosx-version-min=10.6
 SIMULATOR_ARCH_HOST             = i686-apple-darwin9
 SIMULATOR_CFLAGS                = $(SIMULATOR_ARCH_FLAGS) -isysroot $(SIMULATOR_SDK)
 SIMULATOR_CXXFLAGS              = $(SIMULATOR_ARCH_FLAGS) -isysroot $(SIMULATOR_SDK) -I$(SIMULATOR_SDK)/usr/include/c++/4.2.1/$(SIMULATOR_ARCH_HOST)/
@@ -100,8 +102,8 @@ IPHONE_CXX                      = $(IPHONE_BIN)/g++-$(VERSION_GCC)
 IPHONE_CPP                      = $(IPHONE_BIN)/cpp
 IPHONE_CXXCPP                   = $(IPHONE_BIN)/cpp
 IPHONE_AR                       = $(IPHONE_BIN)/ar
-IPHONE_ARCH_FLAGS               = -arch armv6 -miphoneos-version-min=$(VERSION_SDK)
-IPHONE_ARCH_HOST                = armv6-apple-darwin9
+IPHONE_ARCH_FLAGS               = -arch armv7 -miphoneos-version-min=$(VERSION_SDK)
+IPHONE_ARCH_HOST                = armv7-apple-darwin9
 IPHONE_CFLAGS                   = $(IPHONE_ARCH_FLAGS) -isysroot $(IPHONE_SDK)
 IPHONE_CXXFLAGS                 = $(IPHONE_ARCH_FLAGS) -isysroot $(IPHONE_SDK) -I$(IPHONE_SDK)/usr/include/c++/4.2.1/$(IPHONE_ARCH_HOST)/
 
@@ -148,8 +150,8 @@ opencv_simulator:
 
 # iPhone OS build
 opencv_iphone:
-	@echo "    *** Configuring  OpenCV ($(VERSION_OPENCV) - $IPHONE_ARCH_SDKNAME))..."
-	@$(CD) $(DIR_BUILD_IPHONE) && exec ../../$(DIR_TMP)OpenCV-$(VERSION_OPENCV)/configure --prefix=`pwd`/../../$(DIR_LIB_IPHONE) --build=$(BUILD) --host=$(IPHONE_ARCH_HOST) $(BUILD_CONFIG_OPTIONS) CC=$(IPHONE_CC) CXX=$(IPHONE_CXX) CPP=$(IPHONE_CPP) CXXCPP=$(IPHONE_CXXCPP) AR=$(IPHONE_AR) CFLAGS="$(IPHONE_CFLAGS)" CXXFLAGS="$(IPHONE_CXXFLAGS)"
+	@echo "    *** Configuring  OpenCV ($(VERSION_OPENCV) - $(IPHONE_ARCH_SDKNAME))..."
+	$(CD) $(DIR_BUILD_IPHONE) && exec ../../$(DIR_TMP)OpenCV-$(VERSION_OPENCV)/configure --prefix=`pwd`/../../$(DIR_LIB_IPHONE) --build=$(BUILD) --host=$(IPHONE_ARCH_HOST) $(BUILD_CONFIG_OPTIONS) CC=$(IPHONE_CC) CXX=$(IPHONE_CXX) CPP=$(IPHONE_CPP) CXXCPP=$(IPHONE_CXXCPP) AR=$(IPHONE_AR) CFLAGS="$(IPHONE_CFLAGS)" CXXFLAGS="$(IPHONE_CXXFLAGS)"
 	@echo "    *** Building  OpenCV ($(VERSION_OPENCV) - $(IPHONE_ARCH_SDKNAME))..."
 	@$(CD) $(DIR_BUILD_IPHONE) && $(MAKE)
 	@echo "    *** Copying the build files to their final destination"
