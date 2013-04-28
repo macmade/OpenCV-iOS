@@ -18,6 +18,22 @@ You can use the XCode project files freely.
 Note that you still need to give credits to OpenCV, as stated by the BSD License.
 That said, we'll be very happy if you drop us a line when releasing your app!
 
+Project Status
+--------------
+
+This project is no longer maintained.  
+It might not build on latest iOS versions, and might not be compatible with latest OpenCV versions.
 
 [1]: http://www.eosgarden.com/en/opensource/opencv-ios/documentation/   "Documentation"
 [2]: http://www.eosgarden.com/en/opensource/opencv-ios/download/        "Download"
+
+Repository Infos
+----------------
+
+    Owner:			Jean-David Gadina - XS-Labs
+    Web:			www.xs-labs.com
+    Blog:			www.noxeos.com
+    Twitter:		@macmade
+    GitHub:			github.com/macmade
+    LinkedIn:		ch.linkedin.com/in/macmade/
+    StackOverflow:	stackoverflow.com/users/182676/macmade
